@@ -1,6 +1,8 @@
+from flask.ext.migrate import Migrate, MigrateCommand
+from flask.ext.openid import OpenID
 from flask.ext.script import Manager
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.migrate import Migrate, MigrateCommand
+from openid.extensions import pape
 from podhub.meh import Meh
 
 
@@ -16,6 +18,7 @@ _config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}/{}'.format(
 
 app = Meh(__name__, config=_config).app
 db = SQLAlchemy(app)
+oid = OpenID(app, safe_roots=[], extension_responses=[pape.Response])
 
 migrate = Migrate(app, db)
 
