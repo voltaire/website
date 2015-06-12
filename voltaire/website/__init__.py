@@ -5,9 +5,9 @@ from podhub.meh import Meh
 
 
 _config = {
-    'DB_PASSWORD': 'ni0Thoug uti1Dei7 geoShah4 wie1Ahch',
-    'DB_USER': 'mehdev',
-    'DB_DATABASE': 'mehdev',
+    'DB_PASSWORD': 'ooSh2luj Eigiex2d AuChoh0a ohB5WeiG',
+    'DB_USER': 'voltairemc',
+    'DB_DATABASE': 'voltairemc',
     'DB_HOST': 'localhost',
 }
 _config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}/{}'.format(
