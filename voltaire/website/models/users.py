@@ -5,8 +5,12 @@ from . import Base
 
 class User(Base, db.Model):
     __tablename__ = 'user'
+    openid = db.Column(db.String(200))
     profile = db.relationship('Profile', backref='user', lazy='dynamic',
                               uselist=False)
+
+    def __init__(self, openid):
+        self.openid = openid
 
 
 class Profile(Base, db.Model):
