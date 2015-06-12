@@ -14,5 +14,4 @@ class Base(object):
     __mapper_args__ = {'order_by': sqlalchemy.desc('updated_at')}
 
 
-from .content import *
 from .users import *
