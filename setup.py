@@ -35,6 +35,7 @@ setup(
         'alembic==0.7.6',
         'Flask==0.10.1',
         'Flask-Migrate==1.4.0',
+        'Flask-OpenID==1.2.4',
         'Flask-Script==2.0.5',
         'Flask-SQLAlchemy==2.0',
         'itsdangerous==0.24',
