@@ -6,7 +6,7 @@ from . import Base
 roles = db.Table(
     'roles',
     db.Column('role_id', UUID, db.ForeignKey('role.id')),
-    db.Column('user_id', UUID, dbd.ForeignKey('user.id'))
+    db.Column('user_id', UUID, db.ForeignKey('user.id'))
 )
 
 class User(Base, db.Model):
@@ -22,7 +22,7 @@ class User(Base, db.Model):
 
 
 class Role(Base, db.Model):
-    __tablename__ == 'role'
+    __tablename__ = 'role'
     name = db.Column(db.String(80), unique=True)
 
     def __init__(self, name):
