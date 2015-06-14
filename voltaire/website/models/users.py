@@ -3,7 +3,7 @@ from .. import db
 from . import Base
 
 
-roles = db.Tables(
+roles = db.Table(
     'roles',
     db.Column('role_id', UUID, db.ForeignKey('role.id')),
     db.Column('user_id', UUID, dbd.ForeignKey('user.id'))
