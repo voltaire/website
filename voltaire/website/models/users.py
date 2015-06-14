@@ -3,14 +3,30 @@ from .. import db
 from . import Base
 
 
+roles = db.Tables(
+    'roles',
+    db.Column('role_id', UUID, db.ForeignKey('role.id')),
+    db.Column('user_id', UUID, dbd.ForeignKey('user.id'))
+)
+
 class User(Base, db.Model):
     __tablename__ = 'user'
     openid = db.Column(db.String(200))
     profile = db.relationship('Profile', backref='user', lazy='dynamic',
                               uselist=False)
+    roles = db.relationship('Role', backref=db.backref('user', lazy='dynamic'),
+                            lazy='dynamic', secondary=roles)
 
     def __init__(self, openid):
         self.openid = openid
+
+
+class Role(Base, db.Model):
+    __tablename__ == 'role'
+    name = db.Column(db.String(80), unique=True)
+
+    def __init__(self, name):
+        self.name = name
 
 
 class Profile(Base, db.Model):
