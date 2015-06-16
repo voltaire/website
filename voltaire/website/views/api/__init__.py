@@ -1,11 +1,9 @@
 from flask import jsonify, render_template
-from flask.views import View
+from flask.views import MethodView
 from .. import app
 
 
-class ApiBase(View):
-    methods = []
-
+class ApiBase(MethodView):
     @property
     def template(self):
         raise NotImplementedError()
